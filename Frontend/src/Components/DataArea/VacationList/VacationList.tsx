@@ -18,7 +18,7 @@ function VacationList(): JSX.Element {
   const [user, setUser] = useState<UserModel>();
   const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
-  const [vacationPerPage, setVacationPerPage] = useState(10);
+  const [vacationPerPage, setVacationPerPage] = useState(8);
   const [showNotStarted, setShowNotStarted] = useState(false);
   const [showInProgress, setShowInProgress] = useState(false);
   const [showFollowed, setFollowVacation] = useState(false);

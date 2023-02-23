@@ -13,6 +13,7 @@ function Login(): JSX.Element {
     
     const [user, setUser] = useState<UserModel>()
     
+    
 
     useEffect( () => {
         setUser(authStore.getState().user);
@@ -30,7 +31,7 @@ function Login(): JSX.Element {
             await authService.login(credentials);
             const user = authStore.getState().user;
 
-            notify.success("Welcome back!");
+            notify.success("Welcome back " + user.firstName);
             if(user && user.role === "Admin") {
             navigate("/admin/vacations/");
             }  
@@ -54,14 +55,17 @@ function Login(): JSX.Element {
             <form onSubmit={handleSubmit(send)}>
 
                 <label>Email: </label>
-                <input type="text" {...register("email", CredentialsModel.emailValidation)} />
+                <input type="text" placeholder="✉️ enter email" {...register("email", CredentialsModel.emailValidation)} />
                 <span className="Err">{formState.errors.email?.message}</span>
 
                 <label>Password: </label>
-                <input type="password" {...register("password", CredentialsModel.passwordValidation)} />
+                <input type="password" placeholder="🔒 enter password" {...register("password", CredentialsModel.passwordValidation)} />
                 <span className="Err">{formState.errors.password?.message}</span>
                     
                 <button className="button">Login</button>
+
+                <p>Don't have an account?</p>
+        <a href="/register">register</a>
 
             </form>
 

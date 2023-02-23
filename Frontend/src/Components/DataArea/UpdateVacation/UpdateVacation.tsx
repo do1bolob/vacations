@@ -13,6 +13,12 @@ function UpdateVacation(): JSX.Element {
     const navigate = useNavigate();
     const params = useParams();
     const today = new Date()
+    const [preview, setPreview] = useState<File | null>(null);
+
+    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        if (!event.target.files) return;
+        setPreview(event.target.files[0]);
+      };
 
     useEffect( ()=> {
         vacationServiceAdmin.getOneVacation(+params.vacationId)
@@ -76,8 +82,9 @@ function UpdateVacation(): JSX.Element {
                 <input type="number"{...register("price")} required min={0} max={10000}/>
 
                 <label>Image</label>
-                <input type="file" accept="image/*" {...register("image", VacationModel.imageValidation)}/>
-                <span>{formState.errors.image?.message}</span>
+                <img  style={{width:"250px",objectFit:"cover"}}
+                    src={preview === null ? "": URL.createObjectURL(preview)} className="imgPreview"/>
+                <input type="file" accept="image/*" {...register("image", VacationModel.imageValidation)} onChange={handleChange}/>                <span>{formState.errors.image?.message}</span>
 
                 <img src={vacation?.imageUrl} />
                 <button className="button">Update</button>
