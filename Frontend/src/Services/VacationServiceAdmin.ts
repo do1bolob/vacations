@@ -56,9 +56,6 @@ class VacationServiceAdmin {
   public async deleteVacation(vacationId: number): Promise<void> {
     await axios.delete(appConfig.getAllVacationToAdminUrl + vacationId);
   }
-  // public async  getImageNameFromDBV(vacationId: number): Promise<string>{
-
-  // }
 }
 const vacationServiceAdmin = new VacationServiceAdmin();
 

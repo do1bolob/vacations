@@ -2,9 +2,6 @@ import axios from "axios";
 import authService from "../Services/AuthService";
 import { authStore } from "../Redux/AuthState";
 
-
-
-
 class Interceptors  {
 
     public create (): void {
@@ -15,9 +12,9 @@ class Interceptors  {
             }
             return request;
         });
-    }
+    };
 
-}
+};
 
 const interceptors = new Interceptors();
 

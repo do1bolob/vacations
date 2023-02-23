@@ -9,7 +9,11 @@ class CredentialsModel {
     public static emailValidation: RegisterOptions = {
         required: { value: true, message: "Missing email"},
         minLength: { value: 10, message: "Email must be minimum 10 chars"},
-        maxLength: { value: 50, message: "Email can't exceeds 50 chars"}
+        maxLength: { value: 50, message: "Email can't exceeds 50 chars"},
+        pattern: {
+            value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+            message: "format must be email@email.com"
+          }
     };
 
     public static passwordValidation: RegisterOptions = {
