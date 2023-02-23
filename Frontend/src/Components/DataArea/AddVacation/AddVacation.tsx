@@ -1,3 +1,4 @@
+import { width } from "@mui/system";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
@@ -11,8 +12,12 @@ function AddVacation(): JSX.Element {
     const {register, handleSubmit, formState} = useForm<VacationModel>()
     const navigate = useNavigate();
     const today = new Date()
+    const [preview, setPreview] = useState<File | null>(null);
 
- 
+    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+      if (!event.target.files) return;
+      setPreview(event.target.files[0]);
+    };
 
     useEffect (() => {
         
@@ -67,7 +72,9 @@ function AddVacation(): JSX.Element {
                 <input type="number"{...register("price")} required min={0} max={10000}/>
 
                 <label>Image: </label>
-                <input type="file" accept="image/*" {...register("image", VacationModel.imageValidation)}/>
+                    <img  style={{width:"250px",objectFit:"cover"}}
+                    src={preview === null ? "": URL.createObjectURL(preview)} className="imgPreview"/>
+                <input type="file" accept="image/*" {...register("image", VacationModel.imageValidation)} onChange={handleChange}/>
                 <span>{formState.errors.image?.message}</span>
 
                 <button className="button">add</button>
