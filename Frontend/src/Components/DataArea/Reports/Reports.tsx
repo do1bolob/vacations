@@ -1,12 +1,8 @@
 import "./Reports.css";
 import { useEffect, useState } from "react";
 import VacationModel from "../../../Models/VocationModel";
-import UserModel from "../../../Models/UserModel";
-import React from "react";
 import { CSVLink } from "react-csv";
-import { vacationsStore } from "../../../Redux/VacationState";
 import vacationService from "../../../Services/VacationService";
-import { ResponsiveContainer } from "recharts/types/component/ResponsiveContainer";
 import { Bar, BarChart, CartesianGrid, Legend, Tooltip, XAxis, YAxis } from "recharts";
 
 

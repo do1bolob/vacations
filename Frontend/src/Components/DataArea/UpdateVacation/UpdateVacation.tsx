@@ -62,7 +62,7 @@ function UpdateVacation(): JSX.Element {
           
             <label>Destination</label>
                 <input type="text" {...register("destination")} required minLength={2} maxLength={100}/>
-                
+
                 <label>Start Time</label>
                 <input type="date" {...register("startDate")} required />
 
@@ -70,7 +70,7 @@ function UpdateVacation(): JSX.Element {
                 <input type="date" {...register("endDate")} required />
 
                 <label>Description</label>
-                <input type="text" {...register("description")} required minLength={10} maxLength={1000}/>
+                <textarea className="textarea" {...register("description")} required minLength={10} maxLength={1000}></textarea>
 
                 <label>Price</label>
                 <input type="number"{...register("price")} required min={0} max={10000}/>
