@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import UserModel from "../../../Models/UserModel";
@@ -7,57 +6,56 @@ import notify from "../../../Utils/Notify";
 import "./Register.css";
 
 function Register(): JSX.Element {
+  const { register, handleSubmit, formState } = useForm<UserModel>();
+  const navigate = useNavigate();
 
-    const { register, handleSubmit, formState } = useForm<UserModel>();
-    const navigate = useNavigate();
-
-    async function send(user: UserModel) {
-        try {
-            
-            await authService.register(user);
-            notify.success("Welcome " + user.firstName);
-            navigate("/users/vacations");
-        }
-        catch(err: any) {
-            notify.error(err);
-        }
+  async function send(user: UserModel) {
+    try {
+      await authService.register(user);
+      notify.success("Welcome " + user.firstName);
+      navigate("/users/vacations");
+    } catch (err: any) {
+      notify.error(err);
     }
+  }
 
-    
+  return (
+    <div className="Register Box">
+      <h2>Register</h2>
 
-    return (
-        <div className="Register Box">
+      <form onSubmit={handleSubmit(send)}>
+        <label>First name: </label>
+        <input
+          type="text"
+          {...register("firstName", UserModel.firstNameValidation)}
+        />
+        <span className="Err">{formState.errors.firstName?.message}</span>
 
-            <h2>Register</h2>
+        <label>Last name: </label>
+        <input
+          type="text"
+          {...register("lastName", UserModel.lastNameValidation)}
+        />
+        <span className="Err">{formState.errors.lastName?.message}</span>
 
-            <form onSubmit={handleSubmit(send)}>
+        <label>Email: </label>
+        <input type="text" {...register("email", UserModel.emailValidation)} />
+        <span className="Err">{formState.errors.email?.message}</span>
 
-                <label>First name: </label>
-                <input type="text" {...register("firstName", UserModel.firstNameValidation)} />
-                <span className="Err">{formState.errors.firstName?.message}</span>
+        <label>Password: </label>
+        <input
+          type="password"
+          {...register("password", UserModel.passwordValidation)}
+        />
+        <span className="Err">{formState.errors.password?.message}</span>
 
-                <label>Last name: </label>
-                <input type="text" {...register("lastName", UserModel.lastNameValidation)} />
-                <span className="Err">{formState.errors.lastName?.message}</span>
+        <button className="button">Register</button>
 
-                <label>Email: </label>
-                <input type="text" {...register("email", UserModel.emailValidation)} />
-                <span className="Err">{formState.errors.email?.message}</span>
-
-                <label>Password: </label>
-                <input type="password" {...register("password", UserModel.passwordValidation)}  />
-                <span className="Err">{formState.errors.password?.message}</span>
-
-                <button className="button">Register</button>
-
-                <p>Already have an account?</p>
-                <a href="/login">login</a>
-            </form>
-
-
-
-        </div>
-    );
+        <p>Already have an account?</p>
+        <a href="/login">login</a>
+      </form>
+    </div>
+  );
 }
 
 export default Register;

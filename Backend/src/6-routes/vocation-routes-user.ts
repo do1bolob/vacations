@@ -1,10 +1,7 @@
 import express, { Request, Response, NextFunction } from "express";
 import cyber from "../2-utils/cyber";
 import imageHandler from "../2-utils/image-handler";
-import verifyAdmin from "../3-middleware/verify-admin";
 import verifyLoggedIn from "../3-middleware/verify-logged-in";
-import VacationModel from "../4-models/vocation-model";
-import dataService from "../5-services/auth-service";
 import vacationService from "../5-services/vacation-service-user";
 
 const router = express.Router(); // Capital R

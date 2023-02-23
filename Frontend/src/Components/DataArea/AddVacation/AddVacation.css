@@ -10,7 +10,7 @@
 
 }
 
-.AddVacation input,.AddVacation select, .AddVacation button {
+.AddVacation input, .AddVacation select, .AddVacation button {
   width: 100%;
   box-sizing: border-box;
   margin-bottom: 20px;

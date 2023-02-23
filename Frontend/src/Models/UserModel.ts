@@ -29,15 +29,14 @@ class UserModel {
         maxLength: { value: 30, message: "Email can't exceeds 30 chars"},
         pattern: {
             value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-            message: "Invalid email address (format must be email@email.com)"
+            message: "format must be email@email.com"
           }
     };
 
     public static passwordValidation: RegisterOptions = {
         required: { value: true, message: "Missing password"},
         minLength: { value: 4, message: "Password must be minimum 2 chars"},
-        maxLength: { value: 20, message: "Missing name can't exceeds 30 chars"}
-    };
+        maxLength: { value: 20, message: "Missing name can't exceeds 30 chars"}};
 
 
 

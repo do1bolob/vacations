@@ -1,7 +1,6 @@
 import {createStore} from "redux"
 import VacationModel from "../Models/VocationModel";
 
-
 export class VacationsState {
     public vacations: VacationModel[] = [];
 }

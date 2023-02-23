@@ -6,7 +6,7 @@ import UserModel from "../../../Models/UserModel";
 import { authStore } from "../../../Redux/AuthState";
 import authService from "../../../Services/AuthService";
 import notify from "../../../Utils/Notify";
-import "./Login.css";
+
 
 function Login(): JSX.Element {
 

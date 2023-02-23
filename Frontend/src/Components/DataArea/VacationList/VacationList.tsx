@@ -1,23 +1,16 @@
 import axios from "axios";
-import { verify } from "crypto";
 import { useEffect, useState } from "react";
-import { Navigate, NavLink, useNavigate } from "react-router-dom";
-import RoleModel from "../../../Models/RoleModel";
+import {  NavLink } from "react-router-dom";
 import UserModel from "../../../Models/UserModel";
 import VacationModel from "../../../Models/VocationModel";
 import { authStore } from "../../../Redux/AuthState";
 import { vacationsStore } from "../../../Redux/VacationState";
-import authService from "../../../Services/AuthService";
 import vacationService from "../../../Services/VacationService";
 import vacationServiceAdmin from "../../../Services/VacationServiceAdmin";
 import appConfig from "../../../Utils/AppConfig";
 import AdminVacationCard from "../AdminVacationCard/AdminVacationCard";
 import Pagination from "../Pagination/Pagination";
 import UserVacationCard from "../UserVacationCard/UserVacationCard";
-
-
-
-
 import "./VacationList.css";
 
 function VacationList(): JSX.Element {
@@ -29,8 +22,6 @@ function VacationList(): JSX.Element {
   const [showNotStarted, setShowNotStarted] = useState(false);
   const [showInProgress, setShowInProgress] = useState(false);
   const [showFollowed, setFollowVacation] = useState(false);
-  
-
   
 
   useEffect(() => {
@@ -152,7 +143,7 @@ function VacationList(): JSX.Element {
               >
                 {showFollowed
                   ? "Show all vacations"
-                  : "Show only folowed vacation"}
+                  : "Show only followed vacation"}
               </button>
             </div>
           </span>

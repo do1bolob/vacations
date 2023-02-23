@@ -1,4 +1,3 @@
-// import { UploadedFile } from "express-fileupload";
 import { RegisterOptions } from "react-hook-form";
 
 class VacationModel {

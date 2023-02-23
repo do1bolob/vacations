@@ -61,9 +61,8 @@ function UpdateVacation(): JSX.Element {
 
           
             <label>Destination</label>
-                <input type="text" {...register("destination")} required minLength={5} maxLength={50}/>
-                {/* <span className="Err">{formState.errors.destination.message}</span> */}
-
+                <input type="text" {...register("destination")} required minLength={2} maxLength={100}/>
+                
                 <label>Start Time</label>
                 <input type="date" {...register("startDate")} required />
 

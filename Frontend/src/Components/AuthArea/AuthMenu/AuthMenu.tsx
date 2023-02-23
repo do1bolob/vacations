@@ -1,62 +1,60 @@
 import { useEffect, useState } from "react";
-import { Navigate, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import UserModel from "../../../Models/UserModel";
 import { authStore } from "../../../Redux/AuthState";
 import authService from "../../../Services/AuthService";
 import "./AuthMenu.css";
 
 function AuthMenu(): JSX.Element {
+  const [user, setUser] = useState<UserModel>();
 
-    const [user, setUser] = useState<UserModel>();
+  useEffect(() => {
+    setUser(authStore.getState().user);
 
-    useEffect(() => {
+    // Listen to AuthState changes:
+    authStore.subscribe(() => {
+      setUser(authStore.getState().user);
+    });
+  }, []);
 
-        setUser(authStore.getState().user);
+  function logout(): void {
+    authService.logout();
+  }
 
-        // Listen to AuthState changes:
-        authStore.subscribe(() => {
-            setUser(authStore.getState().user);
-        });
+  return (
+    <div className="AuthMenu">
+      {!user && (
+        <>
+          <span>Hello explorer! | </span>
 
-    }, []);
+          <NavLink to="/login">Login</NavLink>
 
-    function logout(): void {
-        authService.logout();
-    }
+          <span> | </span>
 
-    return (
-        <div className="AuthMenu">
-  
-            {!user && <>
+          <NavLink to="/register">Register</NavLink>
+        </>
+      )}
 
-                <span>Hello explorer! | </span>
+      {user && (
+        <>
+          <span>
+            Hello {user.firstName} {user.lastName} |{" "}
+          </span>
 
-                <NavLink to="/login">Login</NavLink>
-
-                <span> | </span>
-
-                <NavLink to="/register">Register</NavLink>
-
-            </>}
-
-            {user && <>
-
-                <span>Hello {user.firstName} {user.lastName} | </span>
-
-                <NavLink to="/register" onClick={logout}>Logout </NavLink>
-                    <span> | </span>
-                    {user && user.role === "Admin" &&
-                <NavLink to ="/admin/vacations">Vacations</NavLink> }
-        {user && user.role === "User" &&
-                <NavLink to ="/users/vacations">Vacations</NavLink>
-            }
-
-            </>}
-
-            
-    
-        </div>
-    );
+          <NavLink to="/register" onClick={logout}>
+            Logout{" "}
+          </NavLink>
+          <span> | </span>
+          {user && user.role === "Admin" && (
+            <NavLink to="/admin/vacations">Vacations</NavLink>
+          )}
+          {user && user.role === "User" && (
+            <NavLink to="/users/vacations">Vacations</NavLink>
+          )}
+        </>
+      )}
+    </div>
+  );
 }
 
 export default AuthMenu;

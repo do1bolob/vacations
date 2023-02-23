@@ -1,8 +1,6 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import VacationModel from "../../../Models/VocationModel";
-import vacationServiceAdmin from "../../../Services/VacationServiceAdmin";
-
 import "./AdminVacationCard.css";
 
 interface AdminVacationCard {
@@ -17,8 +15,6 @@ function AdminVacationCard(props: AdminVacationCard): JSX.Element {
     return d.toLocaleDateString("he-IL");
   }
 
-  
-
   async function deleteMe() {
     try {
       if (!window.confirm("Are you sure?")) return;
@@ -28,8 +24,6 @@ function AdminVacationCard(props: AdminVacationCard): JSX.Element {
       alert(err.message);
     }
   }
-
-  
 
   return (
     <div className="AdminVacationCard">
