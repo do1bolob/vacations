@@ -1,0 +1,385 @@
+{
+	"info": {
+		"_postman_id": "b4f4be43-4b8d-4f49-a68b-f87a5a84a85e",
+		"name": "Vacations",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25020583"
+	},
+	"item": [
+		{
+			"name": "Register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"firstName\": \"Homer\",\n    \"lastName\": \"Simpson\",\n    \"email\": \"Homer@gmail.com\",\n    \"password\": \"1234\",\n    \"role\": \"Admin\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/api/auth/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"barti@gmail.com\",\n    \"password\": \"1234\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/api/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Gett All vacations for users",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4000/api/vacations",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"vacations"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get one vacation",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4000/api/vacations",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"vacations"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Gett All vacations for admin Copy",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4000/api/vacations",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"vacations"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Vacation",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "destination",
+							"value": "Paris",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "Paris destination",
+							"type": "text"
+						},
+						{
+							"key": "startDate",
+							"value": "2023-02-10",
+							"type": "text"
+						},
+						{
+							"key": "endDate",
+							"value": "2023-02-20",
+							"type": "text"
+						},
+						{
+							"key": "price",
+							"value": "800",
+							"type": "text"
+						},
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/Users/dolbolob/Documents/PARIS.jpeg"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:4000/api/vacations",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"vacations"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Vacation",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "destination",
+							"value": "Paris",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "Paris destination",
+							"type": "text"
+						},
+						{
+							"key": "startDate",
+							"value": "2023-02-10",
+							"type": "text"
+						},
+						{
+							"key": "endDate",
+							"value": "2023-02-20",
+							"type": "text"
+						},
+						{
+							"key": "price",
+							"value": "800",
+							"type": "text"
+						},
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/Users/dolbolob/Documents/PARIS.jpeg"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:4000/api/vacations",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"vacations"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Vacation",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "destination",
+							"value": "Paris",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "Paris destination",
+							"type": "text"
+						},
+						{
+							"key": "startDate",
+							"value": "2023-02-10",
+							"type": "text"
+						},
+						{
+							"key": "endDate",
+							"value": "2023-02-20",
+							"type": "text"
+						},
+						{
+							"key": "price",
+							"value": "800",
+							"type": "text"
+						},
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/Users/dolbolob/Documents/PARIS.jpeg"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:4000/api/vacations",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"vacations"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get image",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "destination",
+							"value": "Paris",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "Paris destination",
+							"type": "text"
+						},
+						{
+							"key": "startDate",
+							"value": "2023-02-10",
+							"type": "text"
+						},
+						{
+							"key": "endDate",
+							"value": "2023-02-20",
+							"type": "text"
+						},
+						{
+							"key": "price",
+							"value": "800",
+							"type": "text"
+						},
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/Users/dolbolob/Documents/PARIS.jpeg"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:4000/api/users/vacations/1a9fed07-b3a5-43e0-b1bf-7a9dbddc0266.jpg",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"users",
+						"vacations",
+						"1a9fed07-b3a5-43e0-b1bf-7a9dbddc0266.jpg"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXJJZCI6MTMsImZpcnN0TmFtZSI6IkRvbmFsZCIsImxhc3ROYW1lIjoiVHJ1bXAiLCJlbWFpbCI6InRydW1wQGdtYWlsLmNvbSIsInJvbGUiOiJVc2VyIn0sImlhdCI6MTY3NjkxMTQ5NiwiZXhwIjoxNjc2OTk3ODk2fQ.pylmwGZIwnFYIpkpWtRMCRbV4_KNKoiFZrQ65dowQvo",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

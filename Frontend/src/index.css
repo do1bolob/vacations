@@ -1,0 +1,98 @@
+html, body, #root {
+    height: 100%;
+    padding-top: 10px;
+    text-align: center;
+    font-size: x-large;
+    background-image: url("../../Frontend/src/Assets/Images/main4.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50% 50%;
+    background-attachment: fixed;
+    color: #4D4C58;
+    ;
+
+}
+
+a {
+    color: #4D4C58;;
+}
+
+a:hover {
+    color: red
+}
+
+.Box {
+    display: inline-block;
+    margin: 13px;
+    padding: 10px;
+    border: 1px solid;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px;
+    text-shadow: white 1px 0 10px;
+}
+
+
+form {
+    width: 300px;
+    text-align: center;
+}
+
+form > input, form > button {
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+    font-size: x-large;
+
+}
+
+
+form > label {
+    font-size: x-large;
+}
+
+.Err {
+    color: red;
+    position:absolute;
+    font-size: x-large;
+    margin: 0 20px;
+}
+
+.Pagination {
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    border-bottom: 0px;
+
+  }
+  
+  .page-link {
+    display: inline-block;
+    justify-content: center;
+    padding: 10px 20px;
+    background-color: #56a9ff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    margin: 10px;
+    position: relative;
+  }
+
+
+  
+ol {  
+list-style-type: none;  
+}
+
+ul {
+    list-style-type: none;
+ }
+
+ li {
+    list-style-type: none;
+ }
+
+ /* .button {
+    background-color: #43729d;;
+ } */
+

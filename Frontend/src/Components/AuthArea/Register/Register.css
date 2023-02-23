@@ -1,0 +1,10 @@
+
+
+.Register a {
+    color: wheat;
+    text-align: center;
+}
+
+.Register a:hover {
+    color: red;
+}

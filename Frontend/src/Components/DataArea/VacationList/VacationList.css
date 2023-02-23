@@ -1,0 +1,16 @@
+.VacationList  .btn{
+
+    background-color: #bad4dc;
+    border: none;
+    color: white;
+    padding: 10px 18px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 10px;
+}
+
+.VacationList .btn:hover{
+    background-color: #56a9ff;
+}
