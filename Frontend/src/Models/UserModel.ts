@@ -25,7 +25,7 @@ class UserModel {
 
     public static emailValidation: RegisterOptions = {
         required: { value: true,  message: "Missing email" },
-        minLength: { value: 10, message: "Email must be minimum 10 chars", },
+        minLength: { value: 5, message: "Email must be minimum 5 chars", },
         maxLength: { value: 30, message: "Email can't exceeds 30 chars"},
         pattern: {
             value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,

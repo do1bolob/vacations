@@ -97,3 +97,25 @@ ul {
     background-color: #43729d;;
  }
 
+.Register a {
+    color: wheat;
+    text-align: center;
+}
+
+.Register a:hover {
+    color: red;
+}
+
+.Login a {
+    color: wheat;
+    text-align: center;
+}
+
+.Login a:hover {
+    color: red;
+}
+
+
+input::placeholder {
+    font-size: 16px;
+  }

@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 import UserModel from "../../../Models/UserModel";
 import authService from "../../../Services/AuthService";
 import notify from "../../../Utils/Notify";
-import "./Register.css";
 
 function Register(): JSX.Element {
   const { register, handleSubmit, formState } = useForm<UserModel>();
@@ -26,29 +25,29 @@ function Register(): JSX.Element {
       <form onSubmit={handleSubmit(send)}>
         <label>First name: </label>
         <input
-          type="text" placeholder="enter first name" {...register("firstName", UserModel.firstNameValidation)}
+          type="text" placeholder="👤enter your first name" {...register("firstName", UserModel.firstNameValidation)}
         />
         <span className="Err">{formState.errors.firstName?.message}</span>
 
         <label>Last name: </label>
         <input
-          type="text" placeholder="enter last name"  {...register("lastName", UserModel.lastNameValidation)}
+          type="text" placeholder="👤enter your last name"  {...register("lastName", UserModel.lastNameValidation)}
         />
         <span className="Err">{formState.errors.lastName?.message}</span>
 
         <label>Email: </label>
-        <input type="text" placeholder="enter email" {...register("email", UserModel.emailValidation)} />
+        <input type="text" placeholder="✉️ enter your email" {...register("email", UserModel.emailValidation)} />
         <span className="Err">{formState.errors.email?.message}</span>
 
         <label>Password: </label>
-        <input  type="password" placeholder="enter password" {...register("password", UserModel.passwordValidation)}
+        <input  type="password" placeholder="🔒 enter your password" {...register("password", UserModel.passwordValidation)}
         />
         <span className="Err">{formState.errors.password?.message}</span>
 
         <button className="button">Register</button>
 
         <p>Already have an account?</p>
-        <a href="/login">login</a>
+        <a href="/login">Login</a>
       </form>
     </div>
   );

@@ -55,17 +55,17 @@ function Login(): JSX.Element {
             <form onSubmit={handleSubmit(send)}>
 
                 <label>Email: </label>
-                <input type="text" placeholder="✉️ enter email" {...register("email", CredentialsModel.emailValidation)} />
+                <input type="text" placeholder="✉️ enter your email" {...register("email", CredentialsModel.emailValidation)} />
                 <span className="Err">{formState.errors.email?.message}</span>
 
                 <label>Password: </label>
-                <input type="password" placeholder="🔒 enter password" {...register("password", CredentialsModel.passwordValidation)} />
+                <input type="password" placeholder="🔒 enter your password" {...register("password", CredentialsModel.passwordValidation)} />
                 <span className="Err">{formState.errors.password?.message}</span>
                     
                 <button className="button">Login</button>
 
                 <p>Don't have an account?</p>
-        <a href="/register">register</a>
+        <a href="/register">Register</a>
 
             </form>
 

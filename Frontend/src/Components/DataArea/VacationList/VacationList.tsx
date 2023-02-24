@@ -22,6 +22,7 @@ function VacationList(): JSX.Element {
   const [showNotStarted, setShowNotStarted] = useState(false);
   const [showInProgress, setShowInProgress] = useState(false);
   const [showFollowed, setFollowVacation] = useState(false);
+
   
 
   useEffect(() => {
@@ -168,7 +169,7 @@ function VacationList(): JSX.Element {
           <div>
             <NavLink to="/admin/reports/">Reports</NavLink>
           </div>
-          {vacations.map((v) => (
+          {currentVacation.map((v) => (
             <AdminVacationCard
               key={v.vacationId}
               vacation={v}
