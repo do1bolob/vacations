@@ -4,6 +4,7 @@ import VacationModel from "../../../Models/VocationModel";
 import { CSVLink } from "react-csv";
 import vacationService from "../../../Services/VacationService";
 import { Bar, BarChart, CartesianGrid, Legend, Tooltip, XAxis, YAxis } from "recharts";
+import notify from "../../../Utils/Notify";
 
 
 interface VacationData {
@@ -24,7 +25,7 @@ function Reports(): JSX.Element {
     useEffect(() => {
         vacationService.getAllVacationsForUser()
         .then((dbVacation) => setVacations(dbVacation))
-        .catch((err) => alert(err.message));
+        .catch((err) => notify.error(err));
         },[]);
 
 

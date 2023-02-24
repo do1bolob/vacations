@@ -31,7 +31,7 @@ function UpdateVacation(): JSX.Element {
              setValue("price", vacation.price);
              setVacation(vacation);
         })
-        .catch(err => alert(err.message))
+        .catch(err => notify.error(err))
     },[])
 
     async function send(vacation: VacationModel) {

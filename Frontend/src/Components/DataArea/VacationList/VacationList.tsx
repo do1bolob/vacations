@@ -8,6 +8,7 @@ import { vacationsStore } from "../../../Redux/VacationState";
 import vacationService from "../../../Services/VacationService";
 import vacationServiceAdmin from "../../../Services/VacationServiceAdmin";
 import appConfig from "../../../Utils/AppConfig";
+import notify from "../../../Utils/Notify";
 import AdminVacationCard from "../AdminVacationCard/AdminVacationCard";
 import Pagination from "../Pagination/Pagination";
 import UserVacationCard from "../UserVacationCard/UserVacationCard";
@@ -49,12 +50,12 @@ function VacationList(): JSX.Element {
         vacationService
           .getAllVacationsForUser()
           .then((dbVacation) => setVacations(dbVacation))
-          .catch((err) => alert(err.message));
+          .catch((err) => notify.error(err));
       } else if (user.role === "Admin") {
         vacationServiceAdmin
           .getAllVacationsForAdmin()
           .then((dbVacation) => setVacations(dbVacation))
-          .catch((err) => alert(err.message));
+          .catch((err) => notify.error(err));
       }
     }
   }, [user]);
@@ -81,7 +82,7 @@ function VacationList(): JSX.Element {
       duplicateVacation.splice(index, 1);
       setVacations(duplicateVacation);
     } catch (err: any) {
-      alert(err.message);
+      notify.error(err);
     }
   }
   function vacationNotStarted(vacationId: any): boolean {

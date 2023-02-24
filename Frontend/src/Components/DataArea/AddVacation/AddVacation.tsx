@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import VacationModel from "../../../Models/VocationModel";
 import vacationServiceAdmin from "../../../Services/VacationServiceAdmin";
+import notify from "../../../Utils/Notify";
 import "./AddVacation.css";
 
 function AddVacation(): JSX.Element {
@@ -22,7 +23,7 @@ function AddVacation(): JSX.Element {
         
        vacationServiceAdmin.getAllVacationsForAdmin()
        .then(dbVacation => setVacation(dbVacation))
-       .catch(err => alert(err.message))
+       .catch(err => notify.error(err))
 
     },[])
 
@@ -30,7 +31,7 @@ function AddVacation(): JSX.Element {
         const startTime = new Date(vacation.startDate);
         const endTime = new Date(vacation.endDate);
         if(endTime.getTime() < startTime.getTime()) {
-            alert("Back to the Future is impossible!")
+            notify.error("Back to the Future is impossible!")
              return;
         }
      
@@ -38,13 +39,13 @@ function AddVacation(): JSX.Element {
       
             vacation.image = (vacation.image as unknown as FileList)[0]
             await vacationServiceAdmin.addVacation(vacation);
-            alert("Vacation has been added!");
+            notify.success("Vacation has been added!");
             navigate("/admin/vacations")
             
 
         }
         catch(err: any) {
-            alert(err.message)
+            notify.error(err)
         }
     }
 

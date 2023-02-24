@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import VacationModel from "../../../Models/VocationModel";
+import notify from "../../../Utils/Notify";
 import "./AdminVacationCard.css";
 
 interface AdminVacationCard {
@@ -19,9 +20,9 @@ function AdminVacationCard(props: AdminVacationCard): JSX.Element {
     try {
       if (!window.confirm("Are you sure?")) return;
       await props.deleteVacation(props.vacation.vacationId);
-      alert("Vacation has been deleted!");
+      notify.success("Vacation has been deleted!");
     } catch (err: any) {
-      alert(err.message);
+      notify.error(err);
     }
   }
 

@@ -2,6 +2,7 @@ import axios from "axios";
 import VacationModel from "../Models/VocationModel"
 import { VacationActionType, vacationsStore } from "../Redux/VacationState";
 import appConfig from "../Utils/AppConfig";
+import notify from "../Utils/Notify";
 
 class VacationService {
     [x: string]: any;
@@ -33,11 +34,11 @@ class VacationService {
         vacationsStore.dispatch({type: VacationActionType.DeleteFollower, payload: vacationId})
     }
     catch (err: any) {
-        alert(err)
-    }
-}
+       notify.error(err);
+    };
+};
 
-    }
+    };
 
 const vacationService = new VacationService();
 
