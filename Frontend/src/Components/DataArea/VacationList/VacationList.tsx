@@ -119,6 +119,7 @@ function VacationList(): JSX.Element {
 
   return (
     <div className="VacationList">
+
       {user && user.role === "User" && (
         <div>
           <span className="select">

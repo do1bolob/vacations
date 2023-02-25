@@ -7,6 +7,19 @@ import "./AuthMenu.css";
 
 function AuthMenu(): JSX.Element {
   const [user, setUser] = useState<UserModel>();
+  const now = new Date();
+  const hour = now.getHours();
+  let message = '';
+  
+  if (hour >= 5 && hour < 12) {
+    message = 'Good morning';
+  } else if (hour >= 12 && hour < 18 ) {
+    message = 'Good afternoon';
+  } else if (hour >= 18 && hour < 24) {
+    message = 'Good evening';
+  } else {
+    message = 'Good night';
+  }
 
   useEffect(() => {
     setUser(authStore.getState().user);
@@ -25,7 +38,7 @@ function AuthMenu(): JSX.Element {
     <div className="AuthMenu">
       {!user && (
         <>
-          <span>Hello explorer! | </span>
+          <span>{message} Explorer! | </span>
 
           <NavLink to="/login">Login</NavLink>
 
@@ -38,7 +51,7 @@ function AuthMenu(): JSX.Element {
       {user && (
         <>
           <span>
-            Hello {user.firstName} {user.lastName} |{" "}
+            {message}    {user.firstName} {user.lastName} |{" "}
           </span>
 
           <NavLink to="/register" onClick={logout}>

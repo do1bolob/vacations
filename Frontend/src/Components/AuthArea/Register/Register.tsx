@@ -7,12 +7,12 @@ import notify from "../../../Utils/Notify";
 function Register(): JSX.Element {
   const { register, handleSubmit, formState } = useForm<UserModel>();
   const navigate = useNavigate();
-
+  
   async function send(user: UserModel) {
     try {
       await authService.register(user);
       notify.success("Welcome " + user.firstName);
-      navigate("/users/vacations");
+      navigate("/users/vacations/");
     } catch (err: any) {
       notify.error(err);
     }

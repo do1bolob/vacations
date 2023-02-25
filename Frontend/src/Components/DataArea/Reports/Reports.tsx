@@ -9,7 +9,7 @@ import notify from "../../../Utils/Notify";
 
 interface VacationData {
     destination: string;
-    followerCount: number;
+    followers: number;
   }  
  
 function Reports(): JSX.Element {
@@ -42,7 +42,7 @@ function Reports(): JSX.Element {
 
     const vacationData: VacationData[] = vacations.map((vacation) => {
         const { destination, followersCount } = vacation;
-        return { destination, followerCount: followersCount };
+        return { destination, followers: followersCount };
       });
 
 
@@ -67,10 +67,11 @@ function Reports(): JSX.Element {
         <CartesianGrid strokeDasharray="33" />
         <XAxis dataKey="destination" className="chart" tick={{ fill: "#000000"}}  tickLine={false}
   interval={0}/>
-        <YAxis />
+  <YAxis label={{ value: "number of followers", angle: -90, position: "insideLeft" }}/>
+
         <Tooltip />
         <Legend  className="chart"/>
-          <Bar dataKey="followerCount" fill="#3399FF"  />
+          <Bar dataKey="followers" fill="#3399FF"  />
         </BarChart>
 
 

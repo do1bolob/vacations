@@ -1,6 +1,6 @@
 
 import { useEffect, useState } from "react";
-import { Navigate, Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes, useNavigate } from "react-router-dom";
 import UserModel from "../../../Models/UserModel";
 import { authStore } from "../../../Redux/AuthState";
 import authService from "../../../Services/AuthService";
@@ -17,6 +17,7 @@ import PageNotFound from "../PageNotFound/PageNotFound";
 function Routing(): JSX.Element {
 
     const [user, setUser] = useState<UserModel>()
+    const navigate = useNavigate();
 
 
     useEffect( () => {
@@ -33,7 +34,7 @@ function Routing(): JSX.Element {
             {!user && <>
             <Route path="/register" element={<Register />} /> 
             <Route path="/login" element={<Login />} />
-            <Route path="/" element={<Navigate to="/register" />} />
+            {/* <Route path="/" element={<Navigate to="/register" />} /> */}
             <Route path="*" element={<Login />} />
 
             </>}
@@ -45,6 +46,7 @@ function Routing(): JSX.Element {
             <Route path="/about" element={<About />}/>
             <Route path="/admin/reports" element={<Reports/>}/>
             <Route path="/register" element={<Register />} /> 
+            <Route path="/" element={<Navigate to="/admin/vacations" />} />
 
             </>
             }
@@ -52,9 +54,8 @@ function Routing(): JSX.Element {
 
             <Route path="/users/vacations"  element={<VacationList />}/>
             <Route path="/about" element={<About />}/>
-
-
             <Route path="/login" element={<Login />} /> 
+            <Route path="/" element={<Navigate to="/users/vacations" />} />
             </>} 
          
             {/* <Route path="/" element={<Navigate to="/register" />} /> */}

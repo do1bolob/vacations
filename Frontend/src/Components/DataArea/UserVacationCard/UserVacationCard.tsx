@@ -14,7 +14,6 @@ function UserVacationCard(props: UserVacationCard): JSX.Element {
   async function follow(vacationId: number): Promise<void> {
     try {
       await vacationService.follow(vacationId);
-      console.log("Follow");
     } catch (err: any) {
       notify.error(err);
     }
@@ -22,7 +21,6 @@ function UserVacationCard(props: UserVacationCard): JSX.Element {
   async function unfollow(vacationId: number): Promise<void> {
     try {
       await vacationService.unfollow(vacationId);
-      console.log("Unfollow");
     } catch (err: any) {
       alert(err.message);
     }

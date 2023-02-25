@@ -12,8 +12,7 @@ function Login(): JSX.Element {
 
     
     const [user, setUser] = useState<UserModel>()
-    
-    
+
 
     useEffect( () => {
         setUser(authStore.getState().user);
@@ -36,7 +35,6 @@ function Login(): JSX.Element {
             navigate("/admin/vacations/");
             }  
             else if(user && user.role === "User") {
-                console.log("User");
             navigate("/users/vacations/");
                 
             }

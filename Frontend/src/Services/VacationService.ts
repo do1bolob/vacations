@@ -21,7 +21,7 @@ class VacationService {
         vacationsStore.dispatch({type: VacationActionType.Follow, payload: vacationId})
     }
     catch(err:any){
-        console.log(err);
+       notify.error(err);
 
     }
     
