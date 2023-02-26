@@ -1,6 +1,6 @@
 // import { useState } from "react";
 import { NavLink } from "react-router-dom";
-import VacationModel from "../../../Models/VocationModel";
+import VacationModel from "../../../Models/VacationModel";
 import notify from "../../../Utils/Notify";
 import "./AdminVacationCard.css";
 

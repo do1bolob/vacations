@@ -2,7 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import {  NavLink } from "react-router-dom";
 import UserModel from "../../../Models/UserModel";
-import VacationModel from "../../../Models/VocationModel";
+import VacationModel from "../../../Models/VacationModel";
 import { authStore } from "../../../Redux/AuthState";
 import { vacationsStore } from "../../../Redux/VacationState";
 import vacationService from "../../../Services/VacationService";

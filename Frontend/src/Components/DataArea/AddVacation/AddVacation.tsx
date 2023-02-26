@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
-import VacationModel from "../../../Models/VocationModel";
+import VacationModel from "../../../Models/VacationModel";
 import vacationServiceAdmin from "../../../Services/VacationServiceAdmin";
 import notify from "../../../Utils/Notify";
 import "./AddVacation.css";

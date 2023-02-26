@@ -1,5 +1,5 @@
 import axios from "axios";
-import VacationModel from "../Models/VocationModel";
+import VacationModel from "../Models/VacationModel";
 import { VacationActionType, vacationsStore } from "../Redux/VacationState";
 import appConfig from "../Utils/AppConfig";
 
@@ -37,7 +37,7 @@ class VacationServiceAdmin {
     const addedVacation = response.data;
   }
 
-  public async updateVocation(vacation: VacationModel): Promise<void> {
+  public async updateVacation(vacation: VacationModel): Promise<void> {
     const headers = { "Content-Type": "multipart/form-data" }; // Tell axios that we're sending text and file to backend:
     const response = await axios.put<VacationModel>(
       appConfig.getAllVacationToAdminUrl + vacation.vacationId,

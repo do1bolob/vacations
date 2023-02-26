@@ -2,7 +2,7 @@ import express, { Request, Response, NextFunction } from "express";
 import cyber from "../2-utils/cyber";
 import imageHandler from "../2-utils/image-handler";
 import verifyAdmin from "../3-middleware/verify-admin";
-import VacationModel from "../4-models/vocation-model";
+import VacationModel from "../4-models/vacation-model";
 import vacationServiceAdmin from "../5-services/vacation-service-admin";
 
 const router = express.Router();
@@ -74,9 +74,7 @@ router.delete("/admin/vacations/:vacationId([0-9]+)",verifyAdmin, async (request
 );
 
 // GET http://localhost:4000/api/vacations/images/:imageName
-router.get(
-  "/users/vacations/images/:imageName",
-  async (request: Request, response: Response, next: NextFunction) => {
+router.get( "/users/vacations/images/:imageName", async (request: Request, response: Response, next: NextFunction) => {
     try {
       const imageName = request.params.imageName;
       const absolutePath = imageHandler.getAbsolutePath(imageName);

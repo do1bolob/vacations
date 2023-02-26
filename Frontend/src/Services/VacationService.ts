@@ -1,5 +1,5 @@
 import axios from "axios";
-import VacationModel from "../Models/VocationModel"
+import VacationModel from "../Models/VacationModel"
 import { VacationActionType, vacationsStore } from "../Redux/VacationState";
 import appConfig from "../Utils/AppConfig";
 import notify from "../Utils/Notify";

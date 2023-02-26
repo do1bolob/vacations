@@ -1,6 +1,6 @@
 import "./Reports.css";
 import { useEffect, useState } from "react";
-import VacationModel from "../../../Models/VocationModel";
+import VacationModel from "../../../Models/VacationModel";
 import { CSVLink } from "react-csv";
 import vacationService from "../../../Services/VacationService";
 import { Bar, BarChart, CartesianGrid, Legend, Tooltip, XAxis, YAxis } from "recharts";

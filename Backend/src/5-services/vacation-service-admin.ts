@@ -4,7 +4,7 @@ import dal from "../2-utils/dal";
 import imageHandler from "../2-utils/image-handler";
 import { ResourceNotFoundError } from "../4-models/client-errors";
 import UserModel from "../4-models/user-model";
-import VacationModel from "../4-models/vocation-model";
+import VacationModel from "../4-models/vacation-model";
 
 async function getAllVacationsForUser(
   user: UserModel): Promise<VacationModel[]> {

@@ -1,4 +1,4 @@
-import VacationModel from "../../../Models/VocationModel";
+import VacationModel from "../../../Models/VacationModel";
 import vacationService from "../../../Services/VacationService";
 import notify from "../../../Utils/Notify";
 import "./UserVacationCard.css";

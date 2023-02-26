@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate, useParams } from "react-router-dom";
-import VacationModel from "../../../Models/VocationModel";
+import VacationModel from "../../../Models/VacationModel";
 import vacationServiceAdmin from "../../../Services/VacationServiceAdmin";
 import notify from "../../../Utils/Notify";
 import "./UpdateVacation.css";
@@ -45,7 +45,7 @@ function UpdateVacation(): JSX.Element {
         
         try{
             vacation.image = (vacation.image as unknown as FileList )[0];
-            await vacationServiceAdmin.updateVocation(vacation);
+            await vacationServiceAdmin.updateVacation(vacation);
             notify.success("Vacation has been updated")
             navigate("/admin/vacations")
 
