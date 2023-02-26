@@ -8,7 +8,7 @@ interface UserVacationCard {
 }
 function UserVacationCard(props: UserVacationCard): JSX.Element {
   function isFollowing(isFollowing: number): boolean {
-    return isFollowing === 1 ? true : false;
+    return isFollowing === 1;
   }
 
   async function follow(vacationId: number): Promise<void> {

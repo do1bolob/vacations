@@ -1,0 +1,116 @@
+# MySQL Container + REST API Container + React Container for production.
+# Run without rebuilding images:  docker-compose -f docker-compose.prod.yml up -d
+# Run with rebuilding images:     docker-compose -f docker-compose.prod.yml up -d --build
+# Stop and delete containers:     docker-compose down
+
+services:
+
+  # vacations database (MySQL) service:
+  vacataions-database-service:
+
+    # Image name to create from Dockerfile:
+    image: dolbolob/vacations-database-image:1.0
+
+    # Build the image (if not exists) from specified Dockerfile location:
+    build:
+      context: ./Database
+      dockerfile: Dockerfile.prod
+
+    # Container name:
+    container_name: vacations-database-container
+
+    # Port binding (host:container):
+    ports:
+      - 3306:3306
+
+    # Environment variables needed by MySQL:
+    environment:
+      # MYSQL_HOST: localhost # Internally for the container.
+      # MYSQL_DATABASE: vacationsdatabase
+      # MYSQL_USER: Alice
+      # MYSQL_PASSWORD: Wonderland
+      # MYSQL_ROOT_PASSWORD: Wonderland # Needed by MySQL image.
+
+      # MARIADB_MASTER_HOST: localhost # Internally for the container.
+      MARIADB_HOST: localhost # Internally for the container.
+      MARIADB_DATABASE: vacationsdatabase
+      MARIADB_ROOT_USER: ""
+      MARIADB_ROOT_PASSWORD: ""
+
+    # On crash - restart container, unless manually stopped:
+    restart: unless-stopped
+
+    # Database volumes:
+    volumes:
+
+      # Named Volume for persisting MySQL from container to host:
+      - vacations:/var/lib/mysql
+
+# # -----------------------------------------------------------------------
+
+  # vacations backend service: 
+  vacations-backend-service:
+
+    # Image name to create from Dockerfile:
+    image: dolbolob/vacations-backend-image:1.0
+
+    # Build the image (if not exists) from specified Dockerfile.prod location:
+    build:
+      context: ./Backend
+      dockerfile: Dockerfile.prod
+    
+    # Container name:
+    container_name: vacations-backend-container
+
+    # Port binding (host:container):
+    ports:
+      - 5000:4000
+
+    # Environment variables needed by this service:
+    environment:
+      PORT: 4000
+      MYSQL_HOST: vacations-database-service # Above database service name is the host name.
+      MYSQL_DATABASE: vacationsdatabase
+      MYSQL_USER: ""
+      MYSQL_PASSWORD: ""
+
+    # On crash - restart container, unless manually stopped:
+    restart: unless-stopped
+
+    # On which service we're depending on (starting/stopping order):
+    depends_on: 
+      - vacataions-database-service
+
+# -----------------------------------------------------------------------
+
+  # Vacations frontend service: 
+  vacations-frontend-service:
+
+    # Image name to create from Dockerfile:
+    image: dolbolob/vacations-frontend-image:1.0
+
+    # Build the image (if not exists) from specified Dockerfile.prod location:
+    build:
+      context: ./Frontend
+      dockerfile: Dockerfile.prod
+    
+    # Container name:
+    container_name: vacations-frontend-container
+
+    # Port binding (host:container):
+    ports:
+      - 80:80 # Nginx exposing our site on port 80, and we're also want to expose frontend container on port 80.
+
+    # On crash - restart container, unless manually stopped:
+    restart: unless-stopped
+
+    # On which service we're depending on (starting/stopping order):
+    depends_on: 
+      - vacations-backend-service
+      - vacataions-database-service
+
+# -----------------------------------------------------------------------
+
+# Named Volume list:
+volumes:
+  vacations:

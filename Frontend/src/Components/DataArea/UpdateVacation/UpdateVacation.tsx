@@ -22,11 +22,13 @@ function UpdateVacation(): JSX.Element {
     useEffect( ()=> {
         vacationServiceAdmin.getOneVacation(+params.vacationId)
         .then(vacation => {
+            const startDateNew = vacation.startDate.split('T')[0];
+            const endDateNew = vacation.endDate.split('T')[0];
             setValue("vacationId", vacation.vacationId);
             setValue("destination", vacation.destination);
             setValue("description", vacation.description);
-            setValue("startDate", vacation.startDate);
-            setValue("endDate", vacation.endDate);
+            setValue("startDate", startDateNew);
+            setValue("endDate", endDateNew);
              setValue("price", vacation.price);
              setVacation(vacation);
         })
@@ -38,7 +40,7 @@ function UpdateVacation(): JSX.Element {
         const startTime = new Date(vacation.startDate);
         const endTime = new Date(vacation.endDate);
         if(endTime.getTime() < startTime.getTime()) {
-            notify.success("Back to the Future is impossible!")
+            notify.error("Back to the Future is impossible!")
              return;
         }
         

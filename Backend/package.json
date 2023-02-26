@@ -3,14 +3,14 @@
     "version": "1.0.0",
     "description": "",
     "scripts": {
-        "start": "nodemon --exec ts-node src/app.ts"
+        "start": "nodemon --legacy-watch --exec ts-node src/app.ts"
     },
     "keywords": [],
     "author": "John Bryce",
     "license": "ISC",
     "devDependencies": {
         "@types/cors": "^2.8.13",
-        "@types/express": "^4.17.16",
+        "@types/express": "^4.17.17",
         "@types/express-fileupload": "^1.4.1",
         "@types/helmet": "^4.0.0",
         "@types/joi": "^17.2.3",

@@ -46,10 +46,11 @@ form > label {
 }
 
 .Err {
+    display: block;
     color: red;
-    position:absolute;
-    font-size: x-large;
-    margin: 0 20px;
+    /* position:absolute; */
+    font-size: 14px;
+    /* margin: 0 20px; */
     text-shadow: 1px 1px 2px pink;
 }
 

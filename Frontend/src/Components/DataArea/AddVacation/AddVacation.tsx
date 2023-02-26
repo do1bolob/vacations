@@ -55,7 +55,7 @@ function AddVacation(): JSX.Element {
             <form onSubmit={handleSubmit(send)}>
 
                 <label>Destination: </label>
-                <input type="text" {...register("destination")} required minLength={2} maxLength={50}/>
+                <input type="text" {...register("destination")} placeholder="Add some vacation" required minLength={2} maxLength={50}/>
 
                 <label>Start Time: </label>
                 <input type="date" {...register("startDate")} required min={today.toISOString().split("T")[0]}/>
@@ -64,7 +64,7 @@ function AddVacation(): JSX.Element {
                 <input type="date" {...register("endDate")} required min={today.toISOString().split("T")[0]}/>
 
                 <label>Description: </label>
-                <textarea className="textarea" {...register("description")} required minLength={10} maxLength={1000}></textarea>
+                <textarea className="textarea" {...register("description")} placeholder="Write some description"  required minLength={10} maxLength={1000}></textarea>
 
                 <label>Price:</label>
                 <input type="number"{...register("price")} placeholder="$" required min={0} max={10000}/>

@@ -1,0 +1,104 @@
+# All Services (containers)
+services: 
+
+  # vacations Database (MySQL) service:
+  vacations-database-service:
+
+    # What is the image name to build: 
+    image: dolbolob/vacations-database-image:1.0
+
+    # Where is the Dockerfile describing that image: 
+    build: ./Database
+
+    # What is the container name to create: 
+    container_name: vacations-database-container
+
+    # Environment Variables needed by MySQL: 
+    environment:
+      MYSQL_HOST: localhost # Internally for the container.
+      MYSQL_DATABASE: vacationsdatabase
+      MYSQL_USER: ""
+      MYSQL_PASSWORD: ""
+      MYSQL_ROOT_PASSWORD: ""
+
+    # Port binding:
+    ports:
+      - 3000:3000
+
+    # If service crashes - what to do?
+    restart: unless-stopped
+
+    # Database named volume to container's /var/lib/mysql folder which contains MySQL data: 
+    volumes:
+      - vacations:/var/lib/mysql
+
+# -----------------------------------------------------------------------------------------
+
+
+  vacations-backend-service:
+
+    # What is the image name to build: 
+    image: dobolob/vacation-backend-image:1.0
+
+    # Where is the Dockerfile describing that image: 
+    build: ./Backend
+
+    # What is the container name to create: 
+    container_name: vacations-backend-container
+
+    # Environment Variables: 
+    environment:
+      PORT: 4000
+      MYSQL_HOST: vacations-database-service # The above database service name is the network computer name of the database container.
+      MYSQL_DATABASE: vacationsdatabase
+      MYSQL_USER: ""
+      MYSQL_PASSWORD: ""
+
+    # Port binding between host and container (host-port:container-port):
+    ports: 
+      - 4001:4000
+
+    # If service crashes - what to do?
+    restart: unless-stopped
+
+    # Volumes: 
+    volumes:
+      - ./Backend:/app
+
+    # On which service we're depending on (for startup order):
+    depends_on: 
+      - vacations-database-service
+
+# -----------------------------------------------------------------------------------------
+
+  # vacations frontend service: 
+  vacations-frontend-service:
+
+    # What is the image name to build: 
+    image: dolbolob/vacations-frontend-image:1.0
+
+    # Where is the Dockerfile describing that image: 
+    build: ./Frontend
+
+    # What is the container name to create: 
+    container_name: vacations-frontend-container
+
+    # Port binding between host and container (host-port:container-port):
+    ports: 
+      - 3000:3000
+
+    # If service crashes - what to do?
+    restart: unless-stopped
+
+    # Volumes: 
+    volumes:
+      - ./Frontend:/app
+
+    # On which service we're depending on (for startup order):
+    depends_on:
+      - vacations-backend-service
+
+
+# The above list of all named volumes:
+volumes:
+  vacations:

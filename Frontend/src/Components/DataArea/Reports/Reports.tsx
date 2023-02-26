@@ -14,13 +14,6 @@ interface VacationData {
  
 function Reports(): JSX.Element {
     const [vacations, setVacations] = useState<VacationModel[]>([]);
-    const [following, setFollowing] = useState({
-        label: vacations.map((v)=>v.destination),
-        datasets: [{
-            label: "followers",
-            data: vacations.map((v)=>v.followersCount),
-        }]
-    })
 
     useEffect(() => {
         vacationService.getAllVacationsForUser()
@@ -40,13 +33,11 @@ function Reports(): JSX.Element {
         vacationsList.push(vacation.followersCount);
         data.push(vacationsList);
     }
-
+    //Create array of objects with destination and followers properties
     const vacationData: VacationData[] = vacations.map((vacation) => {
         const { destination, followersCount } = vacation;
         return { destination, followers: followersCount };
       });
-
-
 
     return (
         <div className="Reports">

@@ -1,0 +1,47 @@
+# All Services (containers)
+services: 
+
+  # Vacation REST API service: 
+  vacation-service:
+
+    # What is the image name to build: 
+    image: dolbolob/vacation-image:1.0
+
+    # Where is the Dockerfile describing that image: 
+    build: .
+
+    # What is the container name to create: 
+    container_name: vacation-container
+
+    # Environment Variables: 
+    environment:
+      PORT: 4000
+
+    # Port binding between host and container (host-port:container-port):
+    ports: 
+      - 4001:4000
+
+    # If service crashes - what to do?
+    restart: unless-stopped
+
+
+  # Volumes: 
+    volumes:
+
+  #Host volime - bind specific folder in host to specific folder in container:
+
+      - /Users/dolbolob/Documents:/vacations project/Backend/api/src/1-assets/logs/errors
+    
+
+  #Name volume:
+
+      - app-json:/app/src/1-assets/json
+      - app-images:/app/src/1-assets/images
+
+      - .:/app
+      
+#The above list of all named volumes:
+
+volumes: 
+   app-json:
+   app-images:

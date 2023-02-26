@@ -45,40 +45,29 @@ function VacationList(): JSX.Element {
 
   useEffect(() => {
     if (user) {
+      setLoading(true);
       if (user.role === "User") {
         vacationService
           .getAllVacationsForUser()
           .then((dbVacation) => setVacations(dbVacation))
+          .then(() => setLoading(false))
           .catch((err) => notify.error(err));
       } else if (user.role === "Admin") {
         vacationServiceAdmin
           .getAllVacationsForAdmin()
           .then((dbVacation) => setVacations(dbVacation))
+          .then(() => setLoading(false))
           .catch((err) => notify.error(err));
       }
     }
   }, [user]);
-
-  useEffect(() => {
-    const getVacation = async () => {
-      setLoading(true);
-      const res = await axios.get<VacationModel[]>(
-        appConfig.getAllVacationToUserUrl
-      );
-      setVacations(res.data);
-      setLoading(false);
-    };
-    getVacation();
-
-  }, []);
 
   async function deleteVacation(vacationID: number) {
     try {
       await vacationServiceAdmin.deleteVacation(vacationID);
       const duplicateVacation = [...vacations];
       const index = duplicateVacation.findIndex(
-        (v) => v.vacationId === vacationID
-      );
+        (v) => v.vacationId === vacationID);
       duplicateVacation.splice(index, 1);
       setVacations(duplicateVacation);
     } catch (err: any) {

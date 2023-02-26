@@ -26,7 +26,6 @@ try {
         const user = cyber.getUserFromToken(request);
         const vacationId = +request.params.vacationId;
         await vacationService.follow(user.userId, vacationId);
-        // response.status(204);
         response.json({});
     }
     catch (err: any) {
@@ -40,7 +39,6 @@ router.delete("/users/unfollow/:vacationId", verifyLoggedIn, async (request: Req
         const user = cyber.getUserFromToken(request)
         const vacationId = +request.params.vacationId;
         await vacationService.unfollow(user.userId, vacationId);
-        // response.status(204);
         response.json({});
     }
     catch (err: any) {
