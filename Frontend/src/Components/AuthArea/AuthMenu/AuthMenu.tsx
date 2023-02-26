@@ -54,12 +54,11 @@ function AuthMenu(): JSX.Element {
             {message} {user.firstName} {user.lastName} |{" "}
           </span>
 
-
-          <NavLink to="/about">About</NavLink>
-          <span> | </span>
           <NavLink to="/register" onClick={logout}>
             Logout{" "}
           </NavLink>
+          <span> | </span>
+          <NavLink to="/about">About</NavLink>
           <span> | </span>
           {user && user.role === "Admin" && (
             <NavLink to="/admin/vacations">Vacations</NavLink>

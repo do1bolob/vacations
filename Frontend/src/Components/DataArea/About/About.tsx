@@ -12,7 +12,9 @@ function About(): JSX.Element {
     <p>
     Boro Boro invites you to explore the globe and discover the hidden gems that make each destination unique.
 
-Whether you're looking for a relaxing beach vacation, an adventurous hiking trip, or a cultural city break, Boro Boro has it all. The site's comprehensive search filters and curated recommendations make it easy to find the perfect travel experience for you, no matter your budget or preferences.
+Whether you're looking for a relaxing beach vacation, an adventurous hiking trip, or a cultural city break, Boro Boro has it all. You can filter different vacation - if you're following it, if it is not started or vacation in progress. 
+You also can add, update and delete vacations, download and check reports if you're admin.
+ This project built on React, Node.js and has MYSQL. <br></br>It was made thanks to Assaf Finkelshtein and John Bryce Academy...and a bit of ChatGPT 🙈
     </p>
 
 

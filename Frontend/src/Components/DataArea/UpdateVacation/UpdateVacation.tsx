@@ -65,22 +65,22 @@ function UpdateVacation(): JSX.Element {
             <input type="hidden" {...register("vacationId")}/>
 
           
-            <label>Destination</label>
+            <label>Destination:</label>
                 <input type="text" {...register("destination")} required minLength={2} maxLength={100}/>
 
-                <label>Start Time</label>
+                <label>Start Time:</label>
                 <input type="date" {...register("startDate")} required />
 
-                <label>End Time</label>
+                <label>End Time:</label>
                 <input type="date" {...register("endDate")} required />
 
-                <label>Description</label>
+                <label>Description:</label>
                 <textarea className="textarea" {...register("description")} required minLength={10} maxLength={1000}></textarea>
 
-                <label>Price</label>
-                <input type="number"{...register("price")} required min={0} max={10000}/>
+                <label>Price:</label>
+                <input type="number"{...register("price")} placeholder="$"  required min={0} max={10000}/>
 
-                <label>Image</label>
+                <label>Image:</label>
                 <img  style={{width:"250px",objectFit:"cover"}}
                     src={preview === null ? "": URL.createObjectURL(preview)} className="imgPreview"/>
                 <input type="file" accept="image/*" {...register("image", VacationModel.imageValidation)} onChange={handleChange}/><span>{formState.errors.image?.message}</span>

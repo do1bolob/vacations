@@ -66,8 +66,8 @@ function AddVacation(): JSX.Element {
                 <label>Description: </label>
                 <textarea className="textarea" {...register("description")} required minLength={10} maxLength={1000}></textarea>
 
-                <label>Price: </label>
-                <input type="number"{...register("price")} required min={0} max={10000}/>
+                <label>Price:</label>
+                <input type="number"{...register("price")} placeholder="$" required min={0} max={10000}/>
 
                 <label>Image: </label>
                     <img  style={{width:"250px",objectFit:"cover"}}

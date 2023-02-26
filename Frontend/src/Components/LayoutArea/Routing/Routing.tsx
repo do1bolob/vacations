@@ -41,7 +41,6 @@ function Routing(): JSX.Element {
             <Route path="/admin/vacations/edit/:vacationId" element={<UpdateVacation />}/>
             <Route path="/about" element={<About />}/>
             <Route path="/admin/reports" element={<Reports/>}/>
-            <Route path="/register" element={<Register />} /> 
             <Route path="/" element={<Navigate to="/admin/vacations" />} />
 
             </>
@@ -50,7 +49,6 @@ function Routing(): JSX.Element {
 
             <Route path="/users/vacations"  element={<VacationList />}/>
             <Route path="/about" element={<About />}/>
-            <Route path="/login" element={<Login />} /> 
             <Route path="/" element={<Navigate to="/users/vacations" />} />
             </>} 
             
