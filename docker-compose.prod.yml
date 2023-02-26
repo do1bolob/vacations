@@ -21,20 +21,15 @@ services:
 
     # Port binding (host:container):
     ports:
-      - 3306:3306
+      - 3000:3000
 
     # Environment variables needed by MySQL:
     environment:
-      # MYSQL_HOST: localhost # Internally for the container.
-      # MYSQL_DATABASE: vacationsdatabase
-      # MYSQL_USER: Alice
-      # MYSQL_PASSWORD: Wonderland
-      # MYSQL_ROOT_PASSWORD: Wonderland # Needed by MySQL image.
 
       # MARIADB_MASTER_HOST: localhost # Internally for the container.
       MARIADB_HOST: localhost # Internally for the container.
       MARIADB_DATABASE: vacationsdatabase
-      MARIADB_ROOT_USER: ""
+      MARIADB_ROOT_USER: "root"
       MARIADB_ROOT_PASSWORD: ""
 
     # On crash - restart container, unless manually stopped:
@@ -71,7 +66,7 @@ services:
       PORT: 4000
       MYSQL_HOST: vacations-database-service # Above database service name is the host name.
       MYSQL_DATABASE: vacationsdatabase
-      MYSQL_USER: ""
+      MYSQL_USER: "root"
       MYSQL_PASSWORD: ""
 
     # On crash - restart container, unless manually stopped:
@@ -99,7 +94,7 @@ services:
 
     # Port binding (host:container):
     ports:
-      - 80:80 # Nginx exposing our site on port 80, and we're also want to expose frontend container on port 80.
+      - 8084:80 # Nginx exposing our site on port 80, and we're also want to expose frontend container on port 80.
 
     # On crash - restart container, unless manually stopped:
     restart: unless-stopped
