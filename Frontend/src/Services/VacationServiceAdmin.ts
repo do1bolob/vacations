@@ -39,7 +39,6 @@ class VacationServiceAdmin {
 
   public async updateVocation(vacation: VacationModel): Promise<void> {
     const headers = { "Content-Type": "multipart/form-data" }; // Tell axios that we're sending text and file to backend:
-    console.log(vacation);
     const response = await axios.put<VacationModel>(
       appConfig.getAllVacationToAdminUrl + vacation.vacationId,
       vacation,

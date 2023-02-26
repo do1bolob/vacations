@@ -34,7 +34,6 @@ function Routing(): JSX.Element {
             {!user && <>
             <Route path="/register" element={<Register />} /> 
             <Route path="/login" element={<Login />} />
-            {/* <Route path="/" element={<Navigate to="/register" />} /> */}
             <Route path="*" element={<Login />} />
 
             </>}
@@ -57,8 +56,7 @@ function Routing(): JSX.Element {
             <Route path="/login" element={<Login />} /> 
             <Route path="/" element={<Navigate to="/users/vacations" />} />
             </>} 
-         
-            {/* <Route path="/" element={<Navigate to="/register" />} /> */}
+            
             <Route path="*" element={<PageNotFound />} />
         
         </Routes>

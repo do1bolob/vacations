@@ -49,7 +49,7 @@ export function vacationsReducer (currentState = new VacationsState(), action: V
         break
 
         case VacationActionType.Follow:
-            console.log(action.payload);
+
             
         const followVacation = newState.vacations.find(v => v.vacationId === action.payload)
             followVacation.isFollowing = 1;

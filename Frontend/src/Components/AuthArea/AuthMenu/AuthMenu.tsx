@@ -12,13 +12,13 @@ function AuthMenu(): JSX.Element {
   let message = '';
   
   if (hour >= 5 && hour < 12) {
-    message = 'Good morning';
+    message = 'Good morning,';
   } else if (hour >= 12 && hour < 18 ) {
-    message = 'Good afternoon';
+    message = 'Good afternoon,';
   } else if (hour >= 18 && hour < 24) {
-    message = 'Good evening';
+    message = 'Good evening,';
   } else {
-    message = 'Good night';
+    message = 'Good night,';
   }
 
   useEffect(() => {
@@ -54,6 +54,9 @@ function AuthMenu(): JSX.Element {
             {message}    {user.firstName} {user.lastName} |{" "}
           </span>
 
+
+          <NavLink to="/about">About</NavLink>
+          <span> | </span>
           <NavLink to="/register" onClick={logout}>
             Logout{" "}
           </NavLink>
@@ -63,6 +66,7 @@ function AuthMenu(): JSX.Element {
           )}
           {user && user.role === "User" && (
             <NavLink to="/users/vacations">Vacations</NavLink>
+
           )}
         </>
       )}

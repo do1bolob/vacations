@@ -1,31 +1,21 @@
-.About p {
 
-    width: 900px;
-    height: 350px;
+.About, .legend {
+
+    max-width: 500px;
     margin: auto;
-    margin-top: 50px;
-    text-align: center;
-    font-size: 16px;
-    line-height: 1.5;
-    color: white;
+}
+
+.About p{
     background-color: #383838;
     justify-content: center;
-    opacity: 0.9;
-    border-radius: 10px;
-	
-}
-.About > form {
-	width: 450px;
-    margin: 20px auto;
-    text-align: center;
-    background-color: #383838;
+    opacity: 0.85;
+    color: white;
+    border-radius: 5px;
+    text-align: justify;
+    padding: 5px;
 }
 
-.About .TextBox {
-    width: 100%;
-    margin: 5px 0;
-}
-
-.About .LeftAlign {
-    display: flex;
-}
+h1 span {
+    background-color: #E57A33
+    ;
+  }
