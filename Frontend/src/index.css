@@ -9,8 +9,6 @@ html, body, #root {
     background-position: 50% 50%;
     background-attachment: fixed;
     color: #4D4C58;
-    ;
-
 }
 
 a {
@@ -30,8 +28,6 @@ a:hover {
     box-shadow: 5px 5px 10px;
     text-shadow: white 1px 0 10px;
 }
-
-
 form {
     width: 300px;
     text-align: center;
@@ -42,7 +38,6 @@ form > input, form > button {
     box-sizing: border-box;
     margin-bottom: 20px;
     font-size: x-large;
-
 }
 
 

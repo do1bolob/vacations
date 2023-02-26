@@ -1,4 +1,4 @@
-import { useState } from "react";
+// import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import VacationModel from "../../../Models/VocationModel";
 import notify from "../../../Utils/Notify";
@@ -9,7 +9,7 @@ interface AdminVacationCard {
   deleteVacation: (vacationID: number) => Promise<void>;
 }
 function AdminVacationCard(props: AdminVacationCard): JSX.Element {
-  const [vacation, setVacation] = useState<VacationModel>();
+//   const [vacation, setVacation] = useState<VacationModel>();
 
   function formatTime(time: string): string {
     const d = new Date(time);

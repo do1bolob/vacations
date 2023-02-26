@@ -24,7 +24,6 @@ function VacationList(): JSX.Element {
   const [showInProgress, setShowInProgress] = useState(false);
   const [showFollowed, setFollowVacation] = useState(false);
 
-  
 
   useEffect(() => {
     setUser(authStore.getState().user);
@@ -70,6 +69,7 @@ function VacationList(): JSX.Element {
       setLoading(false);
     };
     getVacation();
+
   }, []);
 
   async function deleteVacation(vacationID: number) {
@@ -114,8 +114,6 @@ function VacationList(): JSX.Element {
     firstVacationIndex,
     lastVacationIndex
   );
-
-
 
   return (
     <div className="VacationList">

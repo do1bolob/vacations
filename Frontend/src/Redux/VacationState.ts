@@ -50,7 +50,6 @@ export function vacationsReducer (currentState = new VacationsState(), action: V
 
         case VacationActionType.Follow:
 
-            
         const followVacation = newState.vacations.find(v => v.vacationId === action.payload)
             followVacation.isFollowing = 1;
             followVacation.followersCount +=1;

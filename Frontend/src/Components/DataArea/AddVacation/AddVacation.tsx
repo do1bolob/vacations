@@ -36,12 +36,10 @@ function AddVacation(): JSX.Element {
         }
      
         try {
-      
             vacation.image = (vacation.image as unknown as FileList)[0]
             await vacationServiceAdmin.addVacation(vacation);
             notify.success("Vacation has been added!");
             navigate("/admin/vacations")
-            
 
         }
         catch(err: any) {
@@ -77,7 +75,7 @@ function AddVacation(): JSX.Element {
                 <input type="file" accept="image/*" {...register("image", VacationModel.imageValidation)} onChange={handleChange}/>
                 <span>{formState.errors.image?.message}</span>
 
-                <button className="button">add</button>
+                <button className="button">Add</button>
 
             </form>
 			

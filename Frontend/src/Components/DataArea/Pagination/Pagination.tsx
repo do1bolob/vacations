@@ -1,5 +1,4 @@
-const Pagination: React.FC<{ vacationPerPage: number, totalVacations: number, 
-    currentPage: number, setCurrentPage: (newPage: number) => void 
+const Pagination: React.FC<{ vacationPerPage: number, totalVacations: number, currentPage: number, setCurrentPage: (newPage: number) => void 
 }> = ({ vacationPerPage, totalVacations, currentPage, setCurrentPage }) => {
     const pageNumbers = [];
   

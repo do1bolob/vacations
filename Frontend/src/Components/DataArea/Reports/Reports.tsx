@@ -28,10 +28,11 @@ function Reports(): JSX.Element {
         .catch((err) => notify.error(err));
         },[]);
 
-
+    //Adding data for csv file
     const data = [
         ["vacations", "followers"]
     ];
+    //Running and adding vacation and destination to arr
     
     for(let vacation of vacations) {
         let vacationsList: any = [];
@@ -64,7 +65,7 @@ function Reports(): JSX.Element {
         <br/><br/>
 
         <BarChart width={1350} height={600} data={vacationData} className="chart">
-        <CartesianGrid strokeDasharray="33" />
+        <CartesianGrid strokeDasharray="1" />
         <XAxis dataKey="destination" className="chart" tick={{ fill: "#000000"}}  tickLine={false}
   interval={0}/>
   <YAxis label={{ value: "number of followers", angle: -90, position: "insideLeft" }}/>

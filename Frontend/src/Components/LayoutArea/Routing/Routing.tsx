@@ -1,10 +1,8 @@
 
 import { useEffect, useState } from "react";
-import { Navigate, Route, Routes, useNavigate } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 import UserModel from "../../../Models/UserModel";
 import { authStore } from "../../../Redux/AuthState";
-import authService from "../../../Services/AuthService";
-import AuthMenu from "../../AuthArea/AuthMenu/AuthMenu";
 import Login from "../../AuthArea/Login/Login";
 import Register from "../../AuthArea/Register/Register";
 import About from "../../DataArea/About/About";
@@ -17,7 +15,6 @@ import PageNotFound from "../PageNotFound/PageNotFound";
 function Routing(): JSX.Element {
 
     const [user, setUser] = useState<UserModel>()
-    const navigate = useNavigate();
 
 
     useEffect( () => {

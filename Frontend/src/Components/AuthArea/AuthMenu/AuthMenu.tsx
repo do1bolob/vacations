@@ -51,7 +51,7 @@ function AuthMenu(): JSX.Element {
       {user && (
         <>
           <span>
-            {message}    {user.firstName} {user.lastName} |{" "}
+            {message} {user.firstName} {user.lastName} |{" "}
           </span>
 
 

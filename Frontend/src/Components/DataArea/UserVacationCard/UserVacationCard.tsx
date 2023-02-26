@@ -22,7 +22,7 @@ function UserVacationCard(props: UserVacationCard): JSX.Element {
     try {
       await vacationService.unfollow(vacationId);
     } catch (err: any) {
-      alert(err.message);
+      notify.error(err);
     }
   }
 

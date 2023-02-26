@@ -15,13 +15,13 @@ class VacationModel {
    
     public static destinationValidation: RegisterOptions = {
         required: {value: true, message: "Missing destination!"}, 
-        minLength: { value: 5, message: "Destination must be minimum 5 chars"},
+        minLength: { value: 2, message: "Destination must be minimum 2 chars"},
         maxLength: { value: 50, message: "Destination can't exceeds 50"},
     }
 
     public static descriptionValidation: RegisterOptions = {
         required: {value: true, message: "Missing description!"}, 
-        minLength: { value: 5, message: "Description must be minimum 5 chars"},
+        minLength: { value: 10, message: "Description must be minimum 10 chars"},
         maxLength: { value: 1000, message: "Destination can't exceeds 1000"},
     }
 
