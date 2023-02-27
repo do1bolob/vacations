@@ -94,7 +94,7 @@ services:
 
     # Port binding (host:container):
     ports:
-      - 8084:80 # Nginx exposing our site on port 80, and we're also want to expose frontend container on port 80.
+      - 80:80 # Nginx exposing our site on port 80, and we're also want to expose frontend container on port 80.
 
     # On crash - restart container, unless manually stopped:
     restart: unless-stopped
